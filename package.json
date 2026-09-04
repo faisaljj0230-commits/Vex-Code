@@ -1,0 +1,9 @@
+{
+  "name": "vex-code-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official website for Vex Code — a modern software development store. Plain static HTML/CSS/JS, no build step required.",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
