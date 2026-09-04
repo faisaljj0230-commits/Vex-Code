@@ -1,7 +1,7 @@
 // Vex Code — site behavior. Plain JS, no build step, no modules.
 // Loaded after config.js, translations.js and projects.js (see index.html).
 
-const LOGO_SRC = 'logo.png';
+const LOGO_SRC = 'https://files.catbox.moe/f7fwco.png';
 
 // ---------- markup builders ----------
 
