@@ -935,4 +935,23 @@ footer {
   .why-item {
     gap: 16px;
   }
+
+  .nav-right {
+    gap: 8px;
+  }
+
+  .lang-btn {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .lang-menu {
+    min-width: 150px;
+    max-width: calc(100vw - 40px);
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
