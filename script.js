@@ -8,9 +8,8 @@ const LOGO_SRC = 'https://files.catbox.moe/f7fwco.png';
 function renderNavbar() {
   return `
     <div class="wrap nav-inner">
-      <a href="#home" class="brand">
+      <a href="#home" class="brand" id="logoHome" aria-label="${SITE.brand} — Home">
         <img src="${LOGO_SRC}" alt="${SITE.brand}">
-        <span>${SITE.brand}</span>
       </a>
 
       <nav class="nav-links">
@@ -65,7 +64,7 @@ function renderFooter() {
             <img src="${LOGO_SRC}" alt="${SITE.brand}">
             <span>${SITE.brand}</span>
           </a>
-          <p data-i18n="footer.tagline">Your Idea. Our Code.</p>
+          <p data-i18n="footer.tagline">Your Idea. Our Code</p>
         </div>
 
         <div class="footer-links">
@@ -78,7 +77,7 @@ function renderFooter() {
       </div>
 
       <div class="footer-bottom">
-        <span>&copy; ${SITE.year} ${SITE.brand}. All rights reserved.</span>
+        <span>&copy; ${SITE.year} ${SITE.brand}. All rights reserved</span>
       </div>
     </div>
   `;
@@ -89,8 +88,8 @@ function renderHero() {
     <section class="hero" id="home">
       <div class="wrap hero-content">
         <div class="hero-brand">VEX CODE</div>
-        <h1 data-i18n="hero.title">Your Idea. Our Code.</h1>
-        <p data-i18n="hero.desc">We build modern digital solutions designed to bring your ideas to life — from powerful websites and Discord bots to custom systems and software.</p>
+        <h1 data-i18n="hero.title">Your Idea. Our Code</h1>
+        <p data-i18n="hero.desc">We build modern digital solutions designed to bring your ideas to life — from powerful websites and Discord bots to custom systems and software</p>
         <div class="hero-buttons">
           <a href="#services" class="btn btn-outline" data-i18n="hero.explore">Explore Services</a>
           <a href="${DISCORD_LINK}" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero.start">Start a Project</a>
@@ -137,7 +136,7 @@ function renderServices() {
         <div class="section-head reveal">
           <div class="eyebrow" data-i18n="services.eyebrow">What We Build</div>
           <h2 class="section-title" data-i18n="services.title">What We Build</h2>
-          <p class="section-desc" data-i18n="services.desc">Professional digital solutions built around your needs.</p>
+          <p class="section-desc" data-i18n="services.desc">Professional digital solutions built around your needs</p>
         </div>
 
         <div class="services-grid">
@@ -165,7 +164,7 @@ function renderWhy() {
         <div class="section-head reveal">
           <div class="eyebrow" data-i18n="why.eyebrow">Why Vex Code?</div>
           <h2 class="section-title" data-i18n="why.title">Why Vex Code?</h2>
-          <p class="section-desc" data-i18n="why.desc">We focus on more than just writing code. We create reliable, modern and carefully designed solutions that are built to perform.</p>
+          <p class="section-desc" data-i18n="why.desc">We focus on more than just writing code. We create reliable, modern and carefully designed solutions that are built to perform</p>
         </div>
 
         <div class="why-list">
@@ -186,14 +185,14 @@ function renderProjectsSection() {
         <div class="section-head reveal">
           <div class="eyebrow" data-i18n="projects.eyebrow">Selected Projects</div>
           <h2 class="section-title" data-i18n="projects.title">Selected Projects</h2>
-          <p class="section-desc" data-i18n="projects.desc">A look at some of the projects and solutions we've built.</p>
+          <p class="section-desc" data-i18n="projects.desc">A look at some of the projects and solutions we've built</p>
         </div>
 
         <div id="projectsGrid" class="projects-grid"></div>
 
         <div id="projectsEmpty" class="coming-soon reveal">
           <span data-i18n="projects.comingSoonTitle">Projects Coming Soon</span>
-          <p data-i18n="projects.comingSoonDesc">We're preparing our portfolio. Real projects will be added here soon.</p>
+          <p data-i18n="projects.comingSoonDesc">We're preparing our portfolio. Real projects will be added here soon</p>
         </div>
       </div>
     </section>
@@ -282,9 +281,9 @@ function renderAbout() {
     <section id="about" class="about-section">
       <div class="wrap">
         <div class="about-inner reveal">
-          <h2 data-i18n="about.title">Built With Code. Driven By Ideas.</h2>
-          <p data-i18n="about.desc">Vex Code is a digital development store focused on creating modern websites, Discord solutions, custom systems and software tailored to each client's needs.</p>
-          <div class="about-tagline" data-i18n="about.tagline">Vex Code — Your Idea, Our Code.</div>
+          <h2 data-i18n="about.title">Built With Code. Driven By Ideas</h2>
+          <p data-i18n="about.desc">Vex Code is a digital development store focused on creating modern websites, Discord solutions, custom systems and software tailored to each client's needs</p>
+          <div class="about-tagline" data-i18n="about.tagline">Vex Code — Your Idea, Our Code</div>
         </div>
       </div>
     </section>
@@ -328,8 +327,8 @@ function renderCta() {
     <section class="cta-section">
       <div class="wrap">
         <div class="cta-inner reveal">
-          <h2 data-i18n="cta.title">Have an Idea? Let's Build It.</h2>
-          <p data-i18n="cta.desc">Turn your idea into something real with Vex Code.</p>
+          <h2 data-i18n="cta.title">Have an Idea? Let's Build It</h2>
+          <p data-i18n="cta.desc">Turn your idea into something real with Vex Code</p>
           <a href="${DISCORD_LINK}" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="cta.button">Start Your Project</a>
         </div>
       </div>
@@ -398,6 +397,23 @@ function mount() {
     renderCta();
 
   document.querySelector('footer').innerHTML = renderFooter();
+}
+
+function initLogoHome() {
+  const logo = document.getElementById('logoHome');
+  if (!logo) return;
+
+  logo.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuToggle = document.getElementById('menuToggle');
+    if (mobileMenu && mobileMenu.classList.contains('open')) {
+      mobileMenu.classList.remove('open');
+      menuToggle.classList.remove('active');
+    }
+  });
 }
 
 function initNavbar() {
@@ -488,6 +504,7 @@ function init() {
   initFaqAccordion();
   initScrollReveal();
   initLanguageSwitching();
+  initLogoHome();
 
   applyLanguage(detectInitialLang());
 }
